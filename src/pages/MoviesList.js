@@ -1,18 +1,12 @@
 import { MovieCard } from "../components/MovieCard";
-import { useState, useEffect } from "react";
+import { Fetch } from "../hooks/Fetch";
 
-export const MoviesList = () => {
+export const MoviesList = ({apiPath}) => {
 
-  const [movies, setMovies] = useState([]);
-
-  useEffect(() => {
-    async function fetchMovies() {
-      const response = await fetch("");
-      const data = await response.json();
-      setMovies(data.results);
-    }
-    fetchMovies();
-  }, [])
+  const {data: movies, isLoading, error} = Fetch(apiPath);
+  
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error fetching movies</div>;
 
   return (
     <main>
