@@ -35,8 +35,13 @@ Cipher Movies is a React-based web application that allows users to explore popu
    ```
    npm install
    ```
+4. Create `.env` file and paste your API key
+   
+   ```
+   REACT_APP_API_KEY = PASTE_API_KEY_HERE
+   ```
 
-4. Start the development server:
+5. Start the development server:
    ```
    npm start
    ```
